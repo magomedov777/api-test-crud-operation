@@ -16,7 +16,11 @@ export type ChangeTodolistTitleActionType = {
     id: string
     title: string
 }
-
+export type ChangeTodolistFilterActionType = {
+    type: 'CHANGE-TODOLIST-FILTER',
+    id: string
+    filter: FilterValuesType
+}
 
 type ActionsType = RemoveTodolistActionType | AddTodolistActionType
     | ChangeTodolistTitleActionType
@@ -98,23 +102,6 @@ export const getTodosTC = () => (dispatch: Dispatch) => {
     })
 }
 
-export const deleteTodosTC = (todoId: string) => (dispatch: Dispatch) => {
-    todolistsAPI.deleteTodolist(todoId)
-    .then(res => {
-        dispatch(removeTodolistAC(todoId))
-    })
-}
 
-export const createTodosTC = (title: string) => (dispatch: Dispatch) => {
-    todolistsAPI.createTodolist(title)
-    .then(res => {
-        dispatch(addTodolistAC(title))
-    })
-}
 
-export const changeTodosTitleTC = (todoId: string, title: string) => (dispatch: Dispatch) => {
-    todolistsAPI.updateTodolist(todoId, title)
-    .then(res => {
-        dispatch(changeTodolistTitleAC(todoId, title))
-    })
-}
+
