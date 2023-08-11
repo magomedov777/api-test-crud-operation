@@ -11,7 +11,11 @@ export type AddTodolistActionType = {
     title: string
     todolistId: string
 }
-
+export type ChangeTodolistTitleActionType = {
+    type: 'CHANGE-TODOLIST-TITLE',
+    id: string
+    title: string
+}
 
 
 type ActionsType = RemoveTodolistActionType | AddTodolistActionType
