@@ -90,6 +90,8 @@ export const changeTodolistFilterAC = (id: string, filter: FilterValuesType): Ch
 
 export type SetTodolistsType = ReturnType<typeof setTodolistAC>
 
+//new ac
+
 export const setTodolistAC = (todos: TodolistType[]) => ({
     type: 'SET-TODOS', todos
 }as const)
