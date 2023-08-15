@@ -88,7 +88,11 @@ export const changeTodolistFilterAC = (id: string, filter: FilterValuesType): Ch
     return {type: 'CHANGE-TODOLIST-FILTER', id: id, filter: filter}
 }
 
+export type SetTodolistsType = ReturnType<typeof setTodolistAC>
 
+export const setTodolistAC = (todos: TodolistType[]) => ({
+    type: 'SET-TODOS', todos
+}as const)
 
 
 export const getTodosTC = () => (dispatch: Dispatch) => {
