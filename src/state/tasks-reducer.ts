@@ -5,9 +5,16 @@ import { TaskPriorities, TaskStatuses, TaskType, UpdateTaskModelType, todolistsA
 import { Dispatch } from 'redux';
 import { AppRootStateType } from './store';
 
+export type RemoveTaskActionType = {
+    type: 'REMOVE-TASK',
+    todolistId: string
+    taskId: string
+}
 
-
-
+export type AddTaskActionType = {
+    type: 'ADD-TASK',
+    task: TaskType
+}
 
 export type ChangeTaskStatusActionType = {
     type: 'CHANGE-TASK-STATUS',
