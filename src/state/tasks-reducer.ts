@@ -11,12 +11,7 @@ import { AppRootStateType } from './store';
 
 
 
-export type ChangeTaskTitleActionType = {
-    type: 'CHANGE-TASK-TITLE',
-    todolistId: string
-    taskId: string
-    title: string
-}
+
 
 type ActionsType = RemoveTaskActionType | AddTaskActionType
     | ChangeTaskStatusActionType
