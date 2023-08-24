@@ -15,6 +15,11 @@ import {
 import { Dispatch } from "redux";
 import { AppRootStateType } from "./store";
 
+export type AddTaskActionType = {
+  type: "ADD-TASK";
+  task: TaskType;
+};
+
 export type ChangeTaskStatusActionType = {
   type: "CHANGE-TASK-STATUS";
   todolistId: string;
