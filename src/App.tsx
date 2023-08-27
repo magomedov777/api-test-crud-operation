@@ -41,7 +41,7 @@ function App() {
 
     useEffect(() => {
         dispatch(getTodosTC())
-    },[])
+    }, [])
 
     const removeTask = useCallback(function (id: string, todolistId: string) {
         // const action = removeTaskAC(id, todolistId);
@@ -55,23 +55,14 @@ function App() {
 
     const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
         // const action = changeTaskStatusAC(id, status, todolistId);
-        dispatch(updateTaskTC(todolistId, id, {status}));
+        dispatch(updateTaskTC(todolistId, id, { status }));
     }, []);
 
-    const changeTaskTitle = useCallback(function (id: string, newTitle: string, todolistId: string) {
-        // const action = changeTaskTitleAC(id, newTitle, todolistId);
-        dispatch(updateTaskTC(todolistId, id, {title: newTitle}));
-    }, []);
 
-    const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
-        const action = changeTodolistFilterAC(todolistId, value);
-        dispatch(action);
-    }, []);
 
-    const removeTodolist = useCallback(function (id: string) {
-        // const action = removeTodolistAC(id);
-        dispatch(deleteTodosTC(id));
-    }, []);
+
+
+
 
     const changeTodolistTitle = useCallback(function (id: string, title: string) {
         // const action = changeTodolistTitleAC(id, title);
@@ -88,7 +79,7 @@ function App() {
             <AppBar position="static">
                 <Toolbar>
                     <IconButton edge="start" color="inherit" aria-label="menu">
-                        <Menu/>
+                        <Menu />
                     </IconButton>
                     <Typography variant="h6">
                         News
@@ -97,8 +88,8 @@ function App() {
                 </Toolbar>
             </AppBar>
             <Container fixed>
-                <Grid container style={{padding: '20px'}}>
-                    <AddItemForm addItem={addTodolist}/>
+                <Grid container style={{ padding: '20px' }}>
+                    <AddItemForm addItem={addTodolist} />
                 </Grid>
                 <Grid container spacing={3}>
                     {
@@ -106,7 +97,7 @@ function App() {
                             let allTodolistTasks = tasks[tl.id];
 
                             return <Grid item key={tl.id}>
-                                <Paper style={{padding: '10px'}}>
+                                <Paper style={{ padding: '10px' }}>
                                     <Todolist
                                         id={tl.id}
                                         title={tl.title}
