@@ -58,11 +58,20 @@ function App() {
         dispatch(updateTaskTC(todolistId, id, { status }));
     }, []);
 
+    const changeTaskTitle = useCallback(function (id: string, newTitle: string, todolistId: string) {
+        // const action = changeTaskTitleAC(id, newTitle, todolistId);
+        dispatch(updateTaskTC(todolistId, id, { title: newTitle }));
+    }, []);
 
+    const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
+        const action = changeTodolistFilterAC(todolistId, value);
+        dispatch(action);
+    }, []);
 
-
-
-
+    const removeTodolist = useCallback(function (id: string) {
+        // const action = removeTodolistAC(id);
+        dispatch(deleteTodosTC(id));
+    }, []);
 
     const changeTodolistTitle = useCallback(function (id: string, title: string) {
         // const action = changeTodolistTitleAC(id, title);
