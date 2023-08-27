@@ -113,7 +113,6 @@ export const tasksReducer = (
     }
     case "CHANGE-TASK-TITLE": {
       let todolistTasks = state[action.todolistId];
-      // найдём нужную таску:
       let newTasksArray = todolistTasks.map((t) =>
         t.id === action.taskId ? { ...t, title: action.title } : t
       );
