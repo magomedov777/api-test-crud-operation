@@ -60,10 +60,7 @@ function App() {
 
 
 
-    const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
-        const action = changeTodolistFilterAC(todolistId, value);
-        dispatch(action);
-    }, []);
+
 
     const removeTodolist = useCallback(function (id: string) {
         // const action = removeTodolistAC(id);
