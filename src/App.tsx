@@ -62,10 +62,7 @@ function App() {
 
 
 
-    const removeTodolist = useCallback(function (id: string) {
-        // const action = removeTodolistAC(id);
-        dispatch(deleteTodosTC(id));
-    }, []);
+
 
     const changeTodolistTitle = useCallback(function (id: string, title: string) {
         // const action = changeTodolistTitleAC(id, title);
