@@ -73,7 +73,10 @@ function App() {
         dispatch(deleteTodosTC(id));
     }, []);
 
-
+    const changeTodolistTitle = useCallback(function (id: string, title: string) {
+        // const action = changeTodolistTitleAC(id, title);
+        dispatch(changeTodosTitleTC(id, title));
+    }, []);
 
 
 
