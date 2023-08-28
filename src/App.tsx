@@ -78,7 +78,10 @@ function App() {
         dispatch(changeTodosTitleTC(id, title));
     }, []);
 
-
+    const addTodolist = useCallback((title: string) => {
+        // const action = addTodolistAC(title);
+        dispatch(createTodosTC(title));
+    }, [dispatch]);
 
     return (
         <div className="App">
