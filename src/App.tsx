@@ -68,7 +68,10 @@ function App() {
         dispatch(action);
     }, []);
 
-
+    const removeTodolist = useCallback(function (id: string) {
+        // const action = removeTodolistAC(id);
+        dispatch(deleteTodosTC(id));
+    }, []);
 
 
 
