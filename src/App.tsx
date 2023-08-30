@@ -56,7 +56,6 @@ function App() {
     }, []);
 
     const changeTaskTitle = useCallback(function (id: string, newTitle: string, todolistId: string) {
-        // const action = changeTaskTitleAC(id, newTitle, todolistId);
         dispatch(updateTaskTC(todolistId, id, { title: newTitle }));
     }, []);
 
