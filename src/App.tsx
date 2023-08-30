@@ -65,7 +65,6 @@ function App() {
     }, []);
 
     const removeTodolist = useCallback(function (id: string) {
-        // const action = removeTodolistAC(id);
         dispatch(deleteTodosTC(id));
     }, []);
 
