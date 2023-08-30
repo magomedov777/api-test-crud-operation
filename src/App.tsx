@@ -48,7 +48,6 @@ function App() {
     }, []);
 
     const addTask = useCallback(function (title: string, todolistId: string) {
-        // const action = addTaskAC(title, todolistId);
         dispatch(createTaskTC(todolistId, title));
     }, []);
 
