@@ -166,6 +166,12 @@ export const getTasksTC = (todoId: string) => (dispatch: Dispatch) => {
   });
 };
 
+export const deleteTasksTC = (todoId: string, taskId: string) => (dispatch: Dispatch) => {
+  todolistsAPI.deleteTask(todoId, taskId).then((res) => {
+    dispatch(removeTaskAC(taskId, todoId));
+  });
+};
+
 export const updateTaskTC =
   (todoId: string, taskId: string, data: FlexType) =>
   (dispatch: Dispatch, getState: () => AppRootStateType) => {
