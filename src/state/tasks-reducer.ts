@@ -178,6 +178,15 @@ export const createTaskTC = (todoId: string, title: string) => (dispatch: Dispat
   });
 };
 
+interface FlexType {
+  title?: string;
+  deadline?: string;
+  startDate?: string;
+  priority?: TaskPriorities;
+  description?: string;
+  status?: TaskStatuses;
+}
+
 export const updateTaskTC =
   (todoId: string, taskId: string, data: FlexType) =>
   (dispatch: Dispatch, getState: () => AppRootStateType) => {
