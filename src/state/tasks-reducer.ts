@@ -96,10 +96,7 @@ export const tasksReducer = (
     case "ADD-TASK": {
       return {
         ...state,
-        [action.task.todoListId]: [
-          action.task,
-          ...state[action.task.todoListId],
-        ],
+        [action.task.todoListId]: [action.task, ...state[action.task.todoListId]],
       };
     }
     case "CHANGE-TASK-STATUS": {
@@ -136,10 +133,7 @@ export const tasksReducer = (
   }
 };
 
-export const removeTaskAC = (
-  taskId: string,
-  todolistId: string
-): RemoveTaskActionType => {
+export const removeTaskAC = (taskId: string, todolistId: string): RemoveTaskActionType => {
   return { type: "REMOVE-TASK", taskId: taskId, todolistId: todolistId };
 };
 export const addTaskAC = (task: TaskType): AddTaskActionType => {
@@ -172,28 +166,17 @@ export const getTasksTC = (todoId: string) => (dispatch: Dispatch) => {
   });
 };
 
-export const deleteTasksTC =
-  (todoId: string, taskId: string) => (dispatch: Dispatch) => {
-    todolistsAPI.deleteTask(todoId, taskId).then((res) => {
-      dispatch(removeTaskAC(taskId, todoId));
-    });
-  };
+export const deleteTasksTC = (todoId: string, taskId: string) => (dispatch: Dispatch) => {
+  todolistsAPI.deleteTask(todoId, taskId).then((res) => {
+    dispatch(removeTaskAC(taskId, todoId));
+  });
+};
 
-export const createTaskTC =
-  (todoId: string, title: string) => (dispatch: Dispatch) => {
-    todolistsAPI.createTask(todoId, title).then((res) => {
-      dispatch(addTaskAC(res.data.data.item));
-    });
-  };
-
-interface FlexType {
-  title?: string;
-  deadline?: string;
-  startDate?: string;
-  priority?: TaskPriorities;
-  description?: string;
-  status?: TaskStatuses;
-}
+export const createTaskTC = (todoId: string, title: string) => (dispatch: Dispatch) => {
+  todolistsAPI.createTask(todoId, title).then((res) => {
+    dispatch(addTaskAC(res.data.data.item));
+  });
+};
 
 export const updateTaskTC =
   (todoId: string, taskId: string, data: FlexType) =>
