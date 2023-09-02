@@ -172,6 +172,8 @@ export const deleteTasksTC = (todoId: string, taskId: string) => (dispatch: Disp
   });
 };
 
+//refactor
+
 export const createTaskTC = (todoId: string, title: string) => (dispatch: Dispatch) => {
   todolistsAPI.createTask(todoId, title).then((res) => {
     dispatch(addTaskAC(res.data.data.item));
