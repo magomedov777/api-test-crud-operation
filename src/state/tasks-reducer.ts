@@ -160,6 +160,12 @@ export const setTasksAC = (todoId: string, tasks: TaskType[]) =>
     todoId,
   } as const);
 
+export const deleteTasksTC = (todoId: string, taskId: string) => (dispatch: Dispatch) => {
+  todolistsAPI.deleteTask(todoId, taskId).then((res) => {
+    dispatch(removeTaskAC(taskId, todoId));
+  });
+};
+
 interface FlexType {
   title?: string;
   deadline?: string;
