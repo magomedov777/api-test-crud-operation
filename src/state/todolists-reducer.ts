@@ -44,6 +44,10 @@ export const todolistsReducer = (
   action: ActionsType
 ): Array<TodolistDomainType> => {
   switch (action.type) {
+    case "SET-TODOS": {
+      return action.todos.map((tl) => ({ ...tl, filter: "all" }));
+    }
+
     default:
       return state;
   }
