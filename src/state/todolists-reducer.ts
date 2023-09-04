@@ -47,9 +47,6 @@ export const todolistsReducer = (
     case "SET-TODOS": {
       return action.todos.map((tl) => ({ ...tl, filter: "all" }));
     }
-    case "REMOVE-TODOLIST": {
-      return state.filter((tl) => tl.id !== action.id);
-    }
 
     default:
       return state;
