@@ -141,12 +141,6 @@ export const setTasksAC = (todoId: string, tasks: TaskType[]) =>
 
 //refactor
 
-export const createTaskTC = (todoId: string, title: string) => (dispatch: Dispatch) => {
-  todolistsAPI.createTask(todoId, title).then((res) => {
-    dispatch(addTaskAC(res.data.data.item));
-  });
-};
-
 interface FlexType {
   title?: string;
   deadline?: string;
