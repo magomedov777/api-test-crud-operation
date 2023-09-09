@@ -45,7 +45,9 @@ function App() {
 
 
 
-
+    const addTask = useCallback(function (title: string, todolistId: string) {
+        dispatch(createTaskTC(todolistId, title));
+    }, []);
 
     const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
         dispatch(updateTaskTC(todolistId, id, { status }));
