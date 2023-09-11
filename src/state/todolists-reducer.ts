@@ -103,3 +103,9 @@ export const setTodolistAC = (todos: TodolistType[]) =>
     type: "SET-TODOS",
     todos,
   } as const);
+
+export const getTodosTC = () => (dispatch: Dispatch) => {
+  todolistsAPI.getTodolists().then((res) => {
+    dispatch(setTodolistAC(res.data));
+  });
+};
