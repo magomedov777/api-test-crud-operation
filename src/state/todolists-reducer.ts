@@ -92,10 +92,7 @@ export const addTodolistAC = (title: string): AddTodolistActionType => {
 export const changeTodolistTitleAC = (id: string, title: string): ChangeTodolistTitleActionType => {
   return { type: "CHANGE-TODOLIST-TITLE", id: id, title: title };
 };
-export const changeTodolistFilterAC = (
-  id: string,
-  filter: FilterValuesType
-): ChangeTodolistFilterActionType => {
+export const changeTodolistFilterAC = (id: string, filter: FilterValuesType): ChangeTodolistFilterActionType => {
   return { type: "CHANGE-TODOLIST-FILTER", id: id, filter: filter };
 };
 
@@ -106,9 +103,3 @@ export const setTodolistAC = (todos: TodolistType[]) =>
     type: "SET-TODOS",
     todos,
   } as const);
-
-export const getTodosTC = () => (dispatch: Dispatch) => {
-  todolistsAPI.getTodolists().then((res) => {
-    dispatch(setTodolistAC(res.data));
-  });
-};
