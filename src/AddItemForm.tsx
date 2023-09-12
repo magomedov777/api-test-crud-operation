@@ -23,7 +23,14 @@ export const AddItemForm = React.memo(function (props: AddItemFormPropsType) {
         setTitle(e.currentTarget.value)
     }
 
-
+    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (error !== null) {
+            setError(null);
+        }
+        if (e.charCode === 13) {
+            addItem();
+        }
+    }
 
     return <div>
         <TextField variant="outlined"
