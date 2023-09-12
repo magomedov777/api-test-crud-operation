@@ -10,7 +10,14 @@ export const AddItemForm = React.memo(function (props: AddItemFormPropsType) {
 
 
 
-
+    const addItem = () => {
+        if (title.trim() !== '') {
+            props.addItem(title);
+            setTitle('');
+        } else {
+            setError('Title is required');
+        }
+    }
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
