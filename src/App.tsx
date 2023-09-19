@@ -39,9 +39,7 @@ function App() {
     const tasks = useAppSelector<TasksStateType>(state => state.tasks)
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        dispatch(getTodosTC())
-    }, [])
+
 
     const removeTask = useCallback(function (id: string, todolistId: string) {
         dispatch(deleteTasksTC(todolistId, id));
