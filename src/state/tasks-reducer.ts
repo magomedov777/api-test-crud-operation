@@ -150,38 +150,3 @@ export const deleteTasksTC = (todoId: string, taskId: string) => (dispatch: Disp
     dispatch(removeTaskAC(taskId, todoId));
   });
 };
-
-export const createTaskTC = (todoId: string, title: string) => (dispatch: Dispatch) => {
-  todolistsAPI.createTask(todoId, title).then((res) => {
-    dispatch(addTaskAC(res.data.data.item));
-  });
-};
-
-interface FlexType {
-  title?: string;
-  deadline?: string;
-  startDate?: string;
-  priority?: TaskPriorities;
-  description?: string;
-  status?: TaskStatuses;
-}
-
-export const updateTaskTC =
-  (todoId: string, taskId: string, data: FlexType) => (dispatch: Dispatch, getState: () => AppRootStateType) => {
-    const task = getState().tasks[todoId].find((t) => t.id === taskId);
-
-    if (task) {
-      const model = {
-        title: task.title,
-        deadline: task.deadline,
-        startDate: task.startDate,
-        priority: task.priority,
-        description: task.description,
-        status: task.status,
-        ...data,
-      };
-      todolistsAPI.updateTask(todoId, taskId, model).then((res) => {
-        dispatch(changeTaskStatusAC(taskId, model, todoId));
-      });
-    }
-  };
