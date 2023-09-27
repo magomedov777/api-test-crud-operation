@@ -49,6 +49,18 @@ export const todolistsReducer = (
     case "REMOVE-TODOLIST": {
       return state.filter((tl) => tl.id !== action.id);
     }
+    case "ADD-TODOLIST": {
+      return [
+        {
+          id: action.todolistId,
+          title: action.title,
+          filter: "all",
+          addedDate: "",
+          order: 0,
+        },
+        ...state,
+      ];
+    }
 
     case "CHANGE-TODOLIST-FILTER": {
       const todolist = state.find((tl) => tl.id === action.id);
