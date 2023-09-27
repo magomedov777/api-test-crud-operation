@@ -34,6 +34,7 @@ const initialState: Array<TodolistDomainType> = [
     {id: todolistId2, title: 'What to buy', filter: 'all', addedDate: '', order: 0}*/
 ];
 
+export type FilterValuesType = "all" | "active" | "completed";
 export type TodolistDomainType = TodolistType & {
   filter: FilterValuesType;
 };
