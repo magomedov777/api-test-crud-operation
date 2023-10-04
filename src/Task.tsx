@@ -6,7 +6,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { TaskStatuses, TaskType } from './api/todolists-api'
 
 
-export const Task = React.memo(() => {
+export const Task = React.memo((props: TaskPropsType) => {
 
 
     return <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? 'is-done' : ''}>
