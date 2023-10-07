@@ -34,6 +34,11 @@ const initialState: Array<TodolistDomainType> = [
     {id: todolistId2, title: 'What to buy', filter: 'all', addedDate: '', order: 0}*/
 ];
 
+export type FilterValuesType = "all" | "active" | "completed";
+export type TodolistDomainType = TodolistType & {
+  filter: FilterValuesType;
+};
+
 export const todolistsReducer = (
   state: Array<TodolistDomainType> = initialState,
   action: ActionsType
@@ -98,3 +103,9 @@ export const setTodolistAC = (todos: TodolistType[]) =>
     type: "SET-TODOS",
     todos,
   } as const);
+
+export const getTodosTC = () => (dispatch: Dispatch) => {
+  todolistsAPI.getTodolists().then((res) => {
+    dispatch(setTodolistAC(res.data));
+  });
+};
