@@ -29,10 +29,7 @@ type ActionsType =
   | ChangeTodolistFilterActionType
   | SetTodolistsType;
 
-const initialState: Array<TodolistDomainType> = [
-  /*{id: todolistId1, title: 'What to learn', filter: 'all', addedDate: '', order: 0},
-    {id: todolistId2, title: 'What to buy', filter: 'all', addedDate: '', order: 0}*/
-];
+const initialState: Array<TodolistDomainType> = [];
 
 export type FilterValuesType = "all" | "active" | "completed";
 export type TodolistDomainType = TodolistType & {
@@ -65,7 +62,6 @@ export const todolistsReducer = (
     case "CHANGE-TODOLIST-TITLE": {
       const todolist = state.find((tl) => tl.id === action.id);
       if (todolist) {
-        // если нашёлся - изменим ему заголовок
         todolist.title = action.title;
       }
       return [...state];
@@ -73,7 +69,6 @@ export const todolistsReducer = (
     case "CHANGE-TODOLIST-FILTER": {
       const todolist = state.find((tl) => tl.id === action.id);
       if (todolist) {
-        // если нашёлся - изменим ему заголовок
         todolist.filter = action.filter;
       }
       return [...state];
@@ -103,6 +98,14 @@ export const setTodolistAC = (todos: TodolistType[]) =>
     type: "SET-TODOS",
     todos,
   } as const);
+
+/**
+ * A thunk action creator that fetches todo lists from the server
+ * and dispatches the retrieved data to update the state.
+ *
+ * @returns {Function} The thunk function that can be dispatched.
+ * @param {Function} dispatch - The dispatch function provided by the Redux store.
+ */
 
 export const getTodosTC = () => (dispatch: Dispatch) => {
   todolistsAPI.getTodolists().then((res) => {
