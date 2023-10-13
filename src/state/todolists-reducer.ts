@@ -29,10 +29,7 @@ type ActionsType =
   | ChangeTodolistFilterActionType
   | SetTodolistsType;
 
-const initialState: Array<TodolistDomainType> = [
-  /*{id: todolistId1, title: 'What to learn', filter: 'all', addedDate: '', order: 0},
-    {id: todolistId2, title: 'What to buy', filter: 'all', addedDate: '', order: 0}*/
-];
+const initialState: Array<TodolistDomainType> = [];
 
 export type FilterValuesType = "all" | "active" | "completed";
 export type TodolistDomainType = TodolistType & {
@@ -65,7 +62,6 @@ export const todolistsReducer = (
     case "CHANGE-TODOLIST-TITLE": {
       const todolist = state.find((tl) => tl.id === action.id);
       if (todolist) {
-        // если нашёлся - изменим ему заголовок
         todolist.title = action.title;
       }
       return [...state];
@@ -73,7 +69,6 @@ export const todolistsReducer = (
     case "CHANGE-TODOLIST-FILTER": {
       const todolist = state.find((tl) => tl.id === action.id);
       if (todolist) {
-        // если нашёлся - изменим ему заголовок
         todolist.filter = action.filter;
       }
       return [...state];

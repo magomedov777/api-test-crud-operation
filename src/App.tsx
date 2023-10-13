@@ -62,15 +62,15 @@ function App() {
     }, []);
 
     const removeTodolist = useCallback(function (id: string) {
-        dispatch(deleteTodosTC(id));
+        dispatch(deleteTodos(id));
     }, []);
 
     const changeTodolistTitle = useCallback(function (id: string, title: string) {
-        dispatch(changeTodosTitleTC(id, title));
+        dispatch(changeTodosTitle(id, title));
     }, []);
 
     const addTodolist = useCallback((title: string) => {
-        dispatch(createTodosTC(title));
+        dispatch(createTodos(title));
     }, [dispatch]);
 
     return (
