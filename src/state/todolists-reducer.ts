@@ -99,6 +99,14 @@ export const setTodolistAC = (todos: TodolistType[]) =>
     todos,
   } as const);
 
+/**
+ * A thunk action creator that fetches todo lists from the server
+ * and dispatches the retrieved data to update the state.
+ *
+ * @returns {Function} The thunk function that can be dispatched.
+ * @param {Function} dispatch - The dispatch function provided by the Redux store.
+ */
+
 export const getTodosTC = () => (dispatch: Dispatch) => {
   todolistsAPI.getTodolists().then((res) => {
     dispatch(setTodolistAC(res.data));
