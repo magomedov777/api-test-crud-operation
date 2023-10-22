@@ -34,14 +34,14 @@ export const Todolist: FC<Props> = memo(function ({ id, title, tasks, changeFilt
         dispatch(getTasksTC(props.id))
     }, [])
 
-    const addTask = useCallback((title: string) => {
+    const addTaskCallback = useCallback((title: string) => {
         props.addTask(title, props.id)
     }, [props.addTask, props.id])
 
-    const removeTodolist = () => {
+    const removeTodolistCallback = () => {
         props.removeTodolist(props.id)
     }
-    const changeTodolistTitle = useCallback((title: string) => {
+    const changeTodolistTitleCallback = useCallback((title: string) => {
         props.changeTodolistTitle(props.id, title)
     }, [props.id, props.changeTodolistTitle])
 
@@ -60,12 +60,12 @@ export const Todolist: FC<Props> = memo(function ({ id, title, tasks, changeFilt
     }
 
     return <div>
-        <h3><EditableSpan value={props.title} onChange={changeTodolistTitle} />
-            <IconButton onClick={removeTodolist}>
+        <h3><EditableSpan value={props.title} onChange={changeTodolistTitleCallback} />
+            <IconButton onClick={removeTodolistCallback}>
                 <Delete />
             </IconButton>
         </h3>
-        <AddItemForm addItem={addTask} />
+        <AddItemForm addItem={addTaskCallback} />
         <div>
             {
                 tasksForTodolist.map(t => <Task key={t.id} task={t} todolistId={props.id}
