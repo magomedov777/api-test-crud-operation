@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { FC, memo, useCallback, useEffect } from 'react'
 import './App.css';
 import { Todolist } from './Todolist';
 import { AddItemForm } from './AddItemForm';
@@ -12,26 +12,23 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { Menu } from '@mui/icons-material';
 import {
-    addTodolistAC,
     changeTodolistFilterAC,
-    changeTodolistTitleAC,
     FilterValuesType,
     getTodosTC,
-    removeTodolistAC,
-    setTodolistAC,
+
     TodolistDomainType
 } from './state/todolists-reducer'
 import { addTaskAC, changeTaskStatusAC, changeTaskTitleAC, createTaskTC, deleteTasksTC, removeTaskAC, updateTaskTC } from './state/tasks-reducer';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatchType, AppRootStateType, useAppDispatch, useAppSelector } from './state/store';
-import { TaskStatuses, TaskType, todolistsAPI } from './api/todolists-api'
+import { useAppDispatch, useAppSelector } from './state/store';
+import { TaskStatuses, TaskType } from './api/todolists-api'
 
 export type TasksStateType = {
     [key: string]: Array<TaskType>
 }
 
 
-function App() {
+const App: FC = memo(() => {
     const todolists = useAppSelector<Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useAppSelector<TasksStateType>(state => state.tasks)
     const dispatch = useAppDispatch();
@@ -118,6 +115,6 @@ function App() {
             </Container>
         </div>
     );
-}
+})
 
 export default App;
