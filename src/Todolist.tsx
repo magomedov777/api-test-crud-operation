@@ -25,9 +25,9 @@ type Props = {
 
 }
 
-export const Todolist: FC<Props> = memo(function ({ id, title, tasks, changeFilter,
+export const Todolist: FC<Props> = memo(({ id, title, tasks, changeFilter,
     addTask, changeTaskStatus, changeTaskTitle,
-    removeTask, removeTodolist, changeTodolistTitle, filter }) {
+    removeTask, removeTodolist, changeTodolistTitle, filter }) => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
